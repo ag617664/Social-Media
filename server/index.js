@@ -11,6 +11,9 @@ import { fileURLToPath } from "url"
 import {register} from './controllers/auth.js'
 import authRoutes from './routes/auth.js'
 import { verifyToken } from "./middleware/auth.js"
+import userRoutes from './routes/user.js'
+import postRoutes from './routes/post.js';
+import {createPost} from './controllers/createPost.js'
 
 const __filename=fileURLToPath(import.meta.url); //pointing to file
 const __dirname=path.dirname(__filename); //pointing to directory
@@ -38,8 +41,11 @@ const upload=multer({storage});
 
 app.post("/auth/register",upload.single("picture")
 ,register);
+app.post("/posts",verifyToken,upload.single("picture"),createPost);
 
-app.use("/auth",authRoutes)
+app.use("/auth",authRoutes);
+app.use("/users",userRoutes);
+app.use("/post",postRoutes);
 
 const PORT=process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URL).then(()=>{
