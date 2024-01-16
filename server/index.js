@@ -13,7 +13,10 @@ import authRoutes from './routes/auth.js'
 import { verifyToken } from "./middleware/auth.js"
 import userRoutes from './routes/user.js'
 import postRoutes from './routes/post.js';
-import {createPost} from './controllers/createPost.js'
+import {createPost} from './controllers/posts.js'
+import Post from "./Models/Post.js"
+import User from "./Models/User.js"
+import {users,posts} from "./data/index.js"
 
 const __filename=fileURLToPath(import.meta.url); //pointing to file
 const __dirname=path.dirname(__filename); //pointing to directory
@@ -50,5 +53,8 @@ app.use("/post",postRoutes);
 const PORT=process.env.PORT || 6001;
 mongoose.connect(process.env.MONGO_URL).then(()=>{
     app.listen(PORT,()=>console.log(`Server port: ${PORT}`));
+
+    // User.insertMany(users);
+    // Post.insertMany(posts);
 })
 .catch((error)=>console.log(`${error} did not connect`));
