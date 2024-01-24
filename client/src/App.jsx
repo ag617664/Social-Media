@@ -4,6 +4,7 @@ import { BrowserRouter,Navigate,Routes,Route } from "react-router-dom";
 import HomePage from "./scenes/homePage/homePage.jsx";
 import LoginPage from "./scenes/loginPage/loginPage.jsx";
 import ProfilePage from "./scenes/profilePage/profilePage.jsx";
+import SignUp from "./scenes/SignOut/signUp.jsx";
 
 
 
@@ -14,6 +15,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<LoginPage/>}/>
+      <Route path="/signUp" element={<SignUp/>}/>
       <Route path="/home" element={<HomePage/>}/>
       <Route path="/profile/:userId" element={<ProfilePage/>}/>
 
