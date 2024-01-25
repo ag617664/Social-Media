@@ -8,6 +8,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { RiUserSettingsFill } from "react-icons/ri";
+// import {PostsWidget} from "../widgets/UserPosts.jsx"
 
 function HomePage() {
   const user=useSelector((state)=>state.user);
@@ -103,7 +104,9 @@ function HomePage() {
           </div>
           
           </div>
-        <div></div>
+        <div>
+        
+        </div>
         <div></div>
       </div>
     </div>
